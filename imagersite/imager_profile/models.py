@@ -1,6 +1,7 @@
 """User Profile Models."""
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
+# from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -8,12 +9,16 @@ from django.contrib.auth.models import User
 class ImagerProfile(models.Model):
     """Class defining imager profile model."""
 
-    user = models.OneToOneField(User, related_name='profile', null=False)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile', null=False)
     camera_model = models.CharField(max_length=250)
     photography_genre = models.TextField()
     contacts = models.ManyToManyField('self')
     address = models.TextField()
     website = models.URLField()
+
+    def __str__(self):
+        """String output for imager profile model."""
+        return "Imager profile for user: {}".format(self.user.username)
 
 
 class ActiveProfileManager(models.Manager):
