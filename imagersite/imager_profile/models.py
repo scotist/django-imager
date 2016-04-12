@@ -1,8 +1,8 @@
 """User Profile Models."""
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
-
+# from django.contrib.auth.models import User
+from django.utils.encoding import python_2_unicode_compatible
 # Create your models here.
 
 
@@ -15,10 +15,11 @@ class ActiveProfileManager(models.Manager):
         return queryset.filter(user__is_active=True)
 
 
+@python_2_unicode_compatible
 class ImagerProfile(models.Model):
     """Class defining imager profile model."""
 
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile', null=False)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
     camera_model = models.CharField(max_length=250)
     photography_genre = models.TextField(default='')
     contacts = models.ManyToManyField('self', default='')
@@ -34,7 +35,6 @@ class ImagerProfile(models.Model):
     def is_active(self):
         """Indicate when a user is active."""
         return self.user.is_active
-
 
 # objects = models.Manager()
 

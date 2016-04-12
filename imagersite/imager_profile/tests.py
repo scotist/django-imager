@@ -45,3 +45,14 @@ class UserCase(SingleUserCase):
     def test_profile_active(self):
         """Test inactive profile."""
         self.assertTrue(self.user.profile.is_active)
+
+
+class PluralUserCase(TestCase):
+    """Test multiple registered users."""
+
+    def setUp(self):
+        self.user_batch = UserFactory.create_batch(USER_BATCH_SIZE)
+
+    def test_user_count(self):
+        """Test correct number of users is active."""
+        self.assertEqual(ImagerProfile.active.count, USER_BATCH_SIZE)
