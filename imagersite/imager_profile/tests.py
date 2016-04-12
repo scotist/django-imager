@@ -7,8 +7,6 @@ from django.test import TestCase
 from django.conf import settings
 from django.db.models import QuerySet, Manager
 from .models import ImagerProfile
-import random
-from django.contrib.auth.models import User
 import factory
 
 USER_BATCH_SIZE = 50
