@@ -41,3 +41,7 @@ class UserCase(SingleUserCase):
     def test_profile_exists(self):
         """Test that user has profile."""
         self.assertTrue(self.user.profile)
+
+    def test_profile_active(self):
+        """Test inactive profile."""
+        self.assertTrue(self.user.profile.is_active)

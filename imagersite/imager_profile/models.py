@@ -30,11 +30,14 @@ class ImagerProfile(models.Model):
         """String output for imager profile model."""
         return "Imager profile for user: {}".format(self.user.username)
 
+    @property
+    def is_active(self):
+        """Indicate when a user is active."""
+        return self.user.is_active
+
+
 # objects = models.Manager()
+
 # active = ActiveProfileManager()
 
 
-@property
-def is_active(self):
-    """Indicate when a user is active."""
-    return self.user.is_active
