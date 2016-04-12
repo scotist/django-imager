@@ -21,4 +21,5 @@ class UserTestCase(TestCase):
         self.user.set_password('secret')
 
     def test_foo(self):
-        import pdb; pdb.set_trace()
+        pass
+        # import pdb; pdb.set_trace()
