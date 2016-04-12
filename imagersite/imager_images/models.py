@@ -1,11 +1,11 @@
-"""Model phots and albums for database items."""
+"""Model photos and albums for database items."""
 
 from django.db import models
 from django.conf import settings
 
 # Create your models here.
 
-PUBLISHED_CHOICES = ['private', 'shared', 'public']
+PUBLISHED_CHOICES = [('private', 'private'), ('shared', 'shared'), ('public', 'public')]
 PUBLISHED_DEFAULT = PUBLISHED_CHOICES[0]
 
 
