@@ -37,7 +37,3 @@ class ImagerProfile(models.Model):
         """Indicate when a user is active."""
         return self.user.is_active
 
-
-# active = ActiveProfileManager()
-
-
