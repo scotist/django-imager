@@ -22,7 +22,7 @@ class ImagerProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
     camera_model = models.CharField(max_length=250)
     photography_genre = models.TextField(default='')
-    contacts = models.ManyToManyField('self', default='')
+    contacts = models.ManyToManyField('self', symmetrical=False, default='')
     address = models.TextField(default='')
     website = models.URLField(default='')
     active = ActiveProfileManager()
