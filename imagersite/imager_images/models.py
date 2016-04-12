@@ -26,10 +26,7 @@ class Photo(models.Model):
                                  default=PUBLISHED_DEFAULT)
 
     def __str__(self):
-        """Sting output for photo item."""
-        return "{}... ({})".format(
-            self.title[:20],
-            self.date_published)
+        return self.name
 
 
 class Album(models.Model):
@@ -73,3 +70,6 @@ class Album(models.Model):
             photo.save()
             if self.cover is None:
                 self.set_cover(photo)
+
+    def __str__(self):
+        return self.name
