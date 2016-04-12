@@ -35,10 +35,6 @@ class SingleUserCase(TestCase):
         self.user = UserFactory.create()
 
 
-    def test_foo(self):
-        pass
-        # import pdb; pdb.set_trace()
-
 class UserCase(SingleUserCase):
     """Test case for photos."""
 
