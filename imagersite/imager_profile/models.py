@@ -25,6 +25,7 @@ class ImagerProfile(models.Model):
     contacts = models.ManyToManyField('self', symmetrical=False, default='')
     address = models.TextField(default='')
     website = models.URLField(default='')
+    objects = models.Manager()
     active = ActiveProfileManager()
 
     def __str__(self):
@@ -36,7 +37,6 @@ class ImagerProfile(models.Model):
         """Indicate when a user is active."""
         return self.user.is_active
 
-# objects = models.Manager()
 
 # active = ActiveProfileManager()
 
