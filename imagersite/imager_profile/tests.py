@@ -55,4 +55,4 @@ class PluralUserCase(TestCase):
 
     def test_user_count(self):
         """Test correct number of users is active."""
-        self.assertEqual(ImagerProfile.active.count, USER_BATCH_SIZE)
+        self.assertEqual(ImagerProfile.active.count(), USER_BATCH_SIZE)
