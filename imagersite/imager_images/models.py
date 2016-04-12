@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.conf import settings
+from django.utils.encoding import python_2_unicode_compatible
 
 # Create your models here.
 
@@ -9,6 +10,7 @@ PUBLISHED_CHOICES = [('private', 'private'), ('shared', 'shared'), ('public', 'p
 PUBLISHED_DEFAULT = PUBLISHED_CHOICES[0]
 
 
+@python_2_unicode_compatible
 class Photo(models.Model):
     """Model a single photo in database."""
 
